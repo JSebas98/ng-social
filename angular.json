@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "ngsocial",
+      "prefix": "ng-social",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
