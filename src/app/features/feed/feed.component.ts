@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/core/models/post.models';
 
 @Component({
   selector: 'ng-social-feed',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent {
+  posts: Array<Post> = [
+    {
+      content: 'Example 1',
+      date: new Date()
+    },
+    {
+      content: 'Example 2',
+      date: new Date()
+    }
+  ];
 
+  constructor() {}
 }
