@@ -1,3 +1,9 @@
 <h2>Your feed</h2>
-<ng-social-post></ng-social-post>
+<main>
+  <ng-social-post
+    *ngFor="let post of posts"
+    [date]="post.date"
+    [content]="post.content"
+  ></ng-social-post>
+</main>
 
