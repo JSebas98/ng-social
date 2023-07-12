@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
   <label
     for="user-email"
   >
@@ -22,12 +22,12 @@
     placeholder="Write your password"
   />
 
-  <button type="submit" [disabled]="loginForm.invalid">
+  <button type="submit" [disabled]="signUpForm.invalid">
     Login
   </button>
 </form>
 
 <div>
-  <p>Don't have an account?</p>
-  <a routerLink="/sign-up">Sign up!</a>
+  <p>Already have an account?</p>
+  <a routerLink="/login">Log in!</a>
 </div>
