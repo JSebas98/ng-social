@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeedComponent } from './features/feed/feed.component';
-import { LoginComponent } from './features/login/login.component';
 import { SignUpComponent } from './features/sign-up/sign-up.component';
+import { authGuard } from './core/guards/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: FeedComponent
+    loadChildren: () => import('./features/feed/feed.module').then((m) => m.FeedModule),
+    canActivate: [authGuard]
   },
   {
     path: 'login',
-    component: LoginComponent
+    loadChildren: () => import('./features/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'sign-up',

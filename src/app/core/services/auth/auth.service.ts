@@ -13,9 +13,14 @@ interface UserToken {
 export class AuthService {
   private readonly AUTH_TOKEN = 'ng-social-super-secret-token-2023';
   private readonly BASE_URL = 'http://localhost:3000/auth';
+
   constructor(
     private http: HttpClient
   ) { }
+
+  isLoggedIn() {
+    return false;
+  }
 
   login(userData: UserDTO): Observable<UserToken> {
     return this.http.post<UserToken>(`${this.BASE_URL}/login`, userData);
