@@ -1,33 +1,37 @@
-<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
-  <label
-    for="user-email"
-  >
-    Email:  
-  </label>
-  <input
-    type="text"
-    id="user-email"
-    formControlName="userEmail"
-    placeholder="Write your email"
-  />
-  <label
-    for="password"
-  >
-    Password:
-  </label>
-  <input
-    type="password"
-    id="password"
-    formControlName="password"
-    placeholder="Write your password"
-  />
-
-  <button type="submit" [disabled]="signUpForm.invalid">
-    Sign up
-  </button>
-</form>
-
-<div>
-  <p>Already have an account?</p>
-  <a routerLink="/login">Log in!</a>
+<div class="form-container">
+  <div class="sign-up-form">
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+      <label
+        for="user-email"
+      >
+        Email:  
+      </label>
+      <input
+        type="text"
+        id="user-email"
+        formControlName="userEmail"
+        placeholder="Write your email"
+      />
+      <label
+        for="password"
+      >
+        Password:
+      </label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Write your password"
+      />
+    
+      <button type="submit" [disabled]="signUpForm.invalid">
+        Sign up
+      </button>
+    </form>
+  </div>
+  
+  <div class="login-info">
+    <p>Already have an account?</p>
+    <a routerLink="/login">Log in!</a>
+  </div>
 </div>

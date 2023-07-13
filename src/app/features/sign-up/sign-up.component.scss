@@ -1,0 +1,26 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-up-form {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  min-width: 50vh;
+}
+
+.login-info {
+  display: inherit;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  column-gap: 0.5rem;
+}
