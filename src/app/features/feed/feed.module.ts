@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedComponent } from './feed.component';
 import { PostModule } from '../post/post.module';
-import { PostComponent } from '../post/post.component';
+import { FeedRoutingModule } from './feed-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,8 @@ import { PostComponent } from '../post/post.component';
   ],
   imports: [
     CommonModule,
-    PostModule
+    PostModule,
+    FeedRoutingModule,
   ]
 })
 export class FeedModule { }

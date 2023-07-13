@@ -19,7 +19,7 @@ export class AuthService {
   ) { }
 
   isLoggedIn() {
-    return false;
+    return true;
   }
 
   login(userData: UserDTO): Observable<UserToken> {
