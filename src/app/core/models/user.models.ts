@@ -1,6 +1,10 @@
-interface User {
+interface UserDTO {
   username: string;
   password: string;
 }
 
-export { User };
+interface User extends UserDTO{
+  _id: string;
+}
+
+export { User, UserDTO };

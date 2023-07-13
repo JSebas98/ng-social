@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../../models/user.models';
+import { User, UserDTO } from '../../models/user.models';
 import { Observable } from 'rxjs';
 
 interface UserToken {
@@ -17,11 +17,11 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  login(userData: User): Observable<UserToken> {
+  login(userData: UserDTO): Observable<UserToken> {
     return this.http.post<UserToken>(`${this.BASE_URL}/login`, userData);
   }
 
-  signUp(userData: User) {
-    return this.http.post<any>(`${this.BASE_URL}/signup`, userData);
+  signUp(userData: UserDTO) {
+    return this.http.post<User>(`${this.BASE_URL}/signup`, userData);
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { User } from 'src/app/core/models/user.models';
+import { UserDTO } from 'src/app/core/models/user.models';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class LoginComponent implements OnDestroy {
   ) { }
 
   login() {
-    const userData: User = this.getUserData();
+    const userData: UserDTO = this.getUserData();
     this.authService
       .login(userData)
       .pipe(takeUntil(this.unsubscribe$))
@@ -34,8 +34,8 @@ export class LoginComponent implements OnDestroy {
       });
   }
 
-  private getUserData(): User {
-    const userData: User = {
+  private getUserData(): UserDTO {
+    const userData: UserDTO = {
       username: this.loginForm.get('userEmail')?.value,
       password: this.loginForm.get('password')?.value
     };
