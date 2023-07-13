@@ -23,7 +23,7 @@ export class SignUpComponent {
   signUp() {
     const userData: UserDTO = this.getUserData();
     this.authService.signUp(userData).subscribe({
-      next: () => this.router.navigate(['/']),
+      next: () => this.router.navigate(['/login']),
     });
   }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'ng-social-navbar',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(
+    private authService: AuthService
+  ) {}
+
+  logout() {
+    this.authService.logout();
+  }
 }

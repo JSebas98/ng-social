@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User, UserDTO } from '../../models/user.models';
 import { Observable, tap } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface UserToken {
   access_token: string;
@@ -18,7 +19,8 @@ export class AuthService {
   constructor(
     @Inject(PLATFORM_ID)
     private platformId: Object,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   get token(): string | null {
@@ -45,10 +47,19 @@ export class AuthService {
       .pipe(tap(userToken => this.saveUserToken(userToken.access_token)));
   }
 
+  logout() {
+    const isBrowser: boolean = isPlatformBrowser(this.platformId);
+    if (isBrowser) {
+      localStorage.removeItem(this.AUTH_TOKEN);
+    }
+
+    this.router.navigate(['/login']);
+  }
+
   private saveUserToken(userToken: string) {
     const isBrowser: boolean = isPlatformBrowser(this.platformId);
     if (isBrowser) {
-      localStorage.setItem('ng-social-auth-token', userToken);
+      localStorage.setItem(this.AUTH_TOKEN, userToken);
     }
   }
 
